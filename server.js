@@ -9,7 +9,7 @@ var Note = require('./models/note')
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-var PORT = 3000;
+var PORT = 443;
 
 // Initialize Express
 var app = express();
