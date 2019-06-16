@@ -1,7 +1,26 @@
-<div class="container-fluid">
+<div class="container-fluid p-5">
     <div class="row">
-        <div class="col-8 mx-auto">
-            {{result}}
+        <div class="card-group">
+            {{#each articles}}
+            <div class="ml-5 mb-5 mx-auto">
+                <div class="card" style="width: 18rem; height: 30rem;">
+                    <img src="{{this.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="{{this.link}}">
+                            <h5 style="font-weight:bold">{{this.title}}</h5>
+                        </a>
+                        <p class="card-text">{{this.description}}</p>
+
+                    </div>
+                </div>
+                        <div class="card-footer">
+                        <a href="/article/{{this._id}}" id="comment" class="btn btn-primary">Comments</a>
+                        </div>
+            </div>
+            {{/each}}
         </div>
     </div>
 </div>
+<script>
+
+</script>

@@ -1,3 +1,68 @@
-.container-fluid{
-    font-family: 'Comfortaa', cursive;
+a{
+    color: darkblue;
 }
+.container-fluid, html{
+    font-family: 'Comfortaa', cursive;
+    background-color: whitesmoke;
+    background-image: url("./ignasi_pattern_s/ignasi_pattern_s.png");
+    background-position: fixed;
+    background-repeat: repeat;
+    overflow-x: hidden;
+}
+.loader {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:rgba(255,255,255,0.5);
+}
+.spinner {
+  width:120px;
+  height:120px;
+  border-radius: 90px;
+  border: 10px solid darkblue;
+  position: fixed;
+  right: 50%;
+  animation-name: spin;
+  animation-duration: 2s;
+  border-left-color: transparent;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+    font-size: 72px;
+    background: -webkit-linear-gradient(#d6abf2, darkblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+.scrape{
+    background: -webkit-linear-gradient(#d6abf2,darkblue)
+}
+
+.scrapeBtn{
+    background: darkblue;
+    text-shadow: lightGrey 1px 0 10px;    
+
+}
+
+.scrapeBtn:hover{
+    background: -webkit-radial-gradient(lavender,darkblue)
+}
+
+.card-body{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+

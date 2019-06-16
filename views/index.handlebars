@@ -1,22 +1,26 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-                <!-- Navbar content -->
-                <a class="navbar-brand" href="#">Navbar w/ text</a>                
-                    <span class="navbar-text">
-                        Navbar text with an inline element
-                    </span>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2 mx-auto">
+   <div class="row">
+        <div class="intro col-12 mx-auto text-center animated fadeInUpBig slow mt-5">
             <form action="/scrape" method="GET">
-            <button type="submit" class="btn-lg btn btn-info p-5 m-5">Scrape!</button>
+            <h1 class="mt-5">To view articles from Buzzfeed News, click the button below.</h1>
+
+            <button type="submit" class="btn-lg btn btn-info p-5 m-5 scrapeBtn"><h2>Scrape!</h2></button>
             </form>
         </div>
     </div>
 
 </div>
+
+<script>
+$(".scrapeBtn").hover(()=>{
+    $(".scrapeBtn").addClass("animated pulse").one('animationend',()=>{
+        $(this).removeClass("animated pulse")
+    })
+})
+
+$("scrapeBtn").on(click, ()=>{
+    $(".intro").removeClass('animated fadeInUpBig slow')
+    $(".intro").addClass('animated fadeOutBig slow')
+})
+
+</script>

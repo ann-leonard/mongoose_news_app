@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <div class="card mb-3">
+                <img src="{{article.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a href="{{article.link}}">
+                        <h5 class="card-title">{{article.title}}</h5>
+                    </a>
+                    <p class="card-text">{{article.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <button class="m-5 p-3 btn btn-primary add" type="button">Add your comment</button>
+            <h1>Comments:</h1>
+            <div id="comments">
+                <div class="list-group">
+                    {{article.note.comment}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+<script>
+    const id = window.location.toString().split("/")[4]
+    $(".add").on("click", async function () {
+        const { value: formValues } = await Swal.fire({
+            title: 'Multiple inputs',
+            html:
+                '<input id="swal-input1" class="swal2-input" placeholder="name">' +
+                '<input id="swal-input2" style="height:5em" class="swal2-input" placeholder="your comment here">',
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                    document.getElementById('swal-input1').value,
+                    document.getElementById('swal-input2').value
+                ]
+            }
+        })
+
+        if (formValues) {
+            const comment = {}
+            comment.sender = JSON.stringify(formValues[0])
+            comment.body = JSON.stringify(formValues[1])
+            $.post(`/article/${id}`, { comment: comment }, (response) => {
+                swal.fire("Thanks!", "Your comment has been submitted.", "success")
+            })
+        }
+    })
+
+</script>
