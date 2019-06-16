@@ -26,9 +26,8 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-mongoose.connect(MONGODB_URI);
-
+console.log(MONGODB_URI)
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true } );
 // Set Handlebars.
 const exphbs = require("express-handlebars");
 
